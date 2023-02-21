@@ -7,3 +7,10 @@ D <- function(daten, var1, var2) {
   names(stats) <- c("mean in group FALSE","mean in group TRUE ","p-value")
   return(stats)
 }
+
+# (e) Funktion zur quantitativen Kategorisierung einer ordinalskalierten Variablen
+#von Yajie Zhang
+E <- function(df, var, cutoffs) {
+  category <- cut(df[[var]], cutoffs, include.lowest = TRUE, labels = c("Low", "Medium", "High"))
+  return(category)
+}
