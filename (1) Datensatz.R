@@ -14,22 +14,60 @@ skala <- c(7:1)     ## Skala, wobei 1 = sehr geringe Interesse und 7 = sehr hohe
 
 
 # Interesse an Mathe
-int.math <- c()   ## leerer Vektor für die Ergebnisse
+int.math <- c()   ## leerer Vektor fÃ¼r die Ergebnisse
 # for - loop, um Zusammenhang zu erzeugen
 for(i in 1:100){
   output <- 
     if(studienfach[i] == "Mathe"){
-      sample(skala, 1, replace = T, prob = c(0.4, 0.35, 0.15, 0.1, 0, 0, 0))
+      sample(skala, 1, replace = T, prob = c(0.5, 0.4, 0.1, 0.0, 0, 0, 0))
+    } else if(studienfach[i] == "Informatik"){
+      sample(skala, 1, replace = T, prob = c(0.05, 0.15, 0.25, 0.25, 0.15, 0.1, 0.05))                 
     } else {
-      sample(skala, 1, replace = T, prob = c(0.15, 0.15, 0.2, 0.2, 0.1, 0.1, 0.1))                 
+      sample(skala, 1, replace = T, prob = c(0.15, 0.25, 0.25, 0.15, 0.1, 0.05, 0.05))
     }
   
   int.math <- c(int.math, output)
 }
 
 
+## Interesse an Programmieren
+int.prog <- c()
+for(i in 1:100){
+  output <- 
+    if(studienfach[i] == "Informatik"){
+      sample(skala, 1, replace = T, prob = c(0.5, 0.35, 0.1, 0.05, 0, 0, 0))
+    } else if(studienfach[i] == "Data Science"){
+      sample(skala, 1, replace = T, prob = c(0.15, 0.25, 0.25, 0.15, 0.1, 0.05, 0.05))                 
+    } else {
+      sample(skala, 1, replace = T, prob = c(0.05, 0.15, 0.25, 0.25, 0.15, 0.1, 0.05))
+    }
+  
+  int.prog <- c(int.prog, output)
+}
+
+
+## Mathe-LK in der Schule
+skala2 <- c("ja", "nein")    
+mathelk <- c()
+for(i in 1:100){
+  output <- 
+    if(studienfach[i] == "Mathe"){
+      sample(skala2, 1, replace = T, prob = c(0.8, 0.2))
+    } else {
+      sample(skala2, 1, replace = T, prob = c(0.6, 0.4))
+    }
+  mathelk <- c(mathelk, output)
+}
+
 
 # dataframe erstellen
-df <- data.frame(id, alter, studienfach, int.math)
+df <- data.frame(id, alter, studienfach, int.math, int.prog, mathelk)
+colnames(df) <- c("ID", "Alter", "Studienfach", "Interesse an Mathe", 
+                  "Interesse an Programmieren", "Mathe - LK")
+
+write.csv(df, "C:\\Users\\2002c\\OneDrive\\Dokumente\\GitHub\\Gruppe-4\\datensatz.csv",
+          row.names = TRUE)
+
+
 
 
