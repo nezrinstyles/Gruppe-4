@@ -46,7 +46,7 @@ for(i in 1:100){
 
 
 ## Mathe-LK in der Schule
-skala2 <- c("ja", "nein")    
+skala2 <- c("ja", "nein")    #hier glaube ich "1""0" oder "TRUE""FALSE" statt "ja""nein" besser
 mathelk <- c()
 for(i in 1:100){
   output <- 
