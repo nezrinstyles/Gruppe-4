@@ -46,7 +46,7 @@ for(i in 1:100){
 
 
 ## Mathe-LK in der Schule
-skala2 <- c(1, 0)    #wobei 1 = ja und 0 = nein
+skala2 <- c(TRUE, FALSE)    #wobei TRUE = ja und FALSE = nein
 mathelk <- c()
 for(i in 1:100){
   output <- 
