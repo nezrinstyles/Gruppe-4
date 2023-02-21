@@ -29,5 +29,40 @@ for(i in 1:100){
 }
 
 
-# dataframe erstellen
-df <- data.frame(id, alter, studienfach, int.math)
+## Interesse an Programmieren
+int.prog <- c()
+for(i in 1:100){
+  output <- 
+    if(studienfach[i] == "Informatik"){
+      sample(skala, 1, replace = T, prob = c(0.5, 0.35, 0.1, 0.05, 0, 0, 0))
+    } else if(studienfach[i] == "Data Science"){
+      sample(skala, 1, replace = T, prob = c(0.15, 0.25, 0.25, 0.15, 0.1, 0.05, 0.05))                 
+    } else {
+      sample(skala, 1, replace = T, prob = c(0.05, 0.15, 0.25, 0.25, 0.15, 0.1, 0.05))
+    }
+
+  int.prog <- c(int.prog, output)
+}
+
+
+## Mathe-LK in der Schule
+skala2 <- c("ja", "nein")    
+mathelk <- c()
+for(i in 1:100){
+  output <- 
+    if(studienfach[i] == "Mathe"){
+      sample(skala2, 1, replace = T, prob = c(0.8, 0.2))
+    } else {
+      sample(skala2, 1, replace = T, prob = c(0.6, 0.4))
+    }
+  mathelk <- c(mathelk, output)
+}
+
+
+
+df <- data.frame(id, alter, studienfach, int.math, int.prog, mathelk)
+colnames(df) <- c("ID", "Alter", "Studienfach", "Interesse an Mathe", 
+                  "Interesse an Programmieren", "Mathe - LK")
+
+
+write.csv(df, "datensatz.csv", row.names = TRUE)
