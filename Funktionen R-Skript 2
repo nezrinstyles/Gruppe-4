@@ -31,3 +31,43 @@ k.var <- function(df){
   }
   print(zeilen[!is.na(zeilen)])     # Gib eine Liste der Indizes der kategorialen Spalten aus
 }
+
+
+
+
+## Hilfsfunktion, die Gültigkeit von Funktionsvariablen a-f bestimmen
+varuseful = function(var){
+  if(var<=6 & var>=2){
+    if(var==3){
+      return(FALSE)
+    }
+    else{
+      return(TRUE)
+    }
+  }
+  else{
+    return(FALSE)
+  }
+}
+
+var_d = function(var1,var2){
+  if(var2 == 6){
+    if(var1 == 3){
+      return(FALSE)
+    }
+    else{
+      return(TRUE)
+    }
+  }
+  else{
+    return(FALSE)
+  }
+}
+
+
+
+
+
+
+
+
