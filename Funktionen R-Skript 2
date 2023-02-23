@@ -1,0 +1,29 @@
+## Hilfsfunktionen, um jene Spalten mit metrischen variablen zu bekommen
+m.var <- function(df){
+  zeilen <- c()
+  for(i in 2:ncol(df)){
+    if(is.logical(df[,i])){
+      next
+    } else if (is.character(df[,i])){
+      next
+    } else {
+      zeilen[i] <- i
+    }
+  }
+  print(zeilen[!is.na(zeilen)])
+}
+
+## Hilfsfunktion, um jene Spalten mit kategorialen Variablen zu bekommen
+k.var <- function(df){
+  zeilen <- c()
+  for(i in 2:ncol(df)){
+    if(is.logical(df[,i])){
+      zeilen[i] <- i
+    } else if (is.character(df[,i])){
+      zeilen[i] <- i
+    } else {
+      zeilen[i] <- NA
+    }
+  }
+  print(zeilen[!is.na(zeilen)])
+}
