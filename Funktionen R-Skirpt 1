@@ -91,6 +91,7 @@ cat_summary <- function(df, var1, var2){
 cat_summary(df, "Studienfach", "Interesse an Mathe")
 
 
+
 # (d) Eine Funktion, die geeignete deskriptive bivariate Statistiken für den Zusammengang zwischen metrischen und dichotomen Variablen berechnet und ausgibt.
  
 D <- function(daten, var1, var2) {
@@ -101,7 +102,9 @@ D <- function(daten, var1, var2) {
 }
 
 
+
 # (e) Eine Funktion, die eine mindestens ordinal skalierte Variable quantilbasiert kategorisiert (z.B. in „niedrig“, „mittel“, „hoch“).
+
 
 
 # (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier kategorialen Variablen erstellt.
