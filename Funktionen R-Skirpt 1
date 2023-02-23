@@ -1,22 +1,43 @@
 ## Hier sind die Punkte a-f aus Aufgabe 3. 
 
 
-# (a) verschiedene deskriptive Statistiken für metrische Variablen
+
+## (a) verschiedene deskriptive Statistiken für metrische Variablen
 
 met.deskstat <- function(df){
-  x <- m.var(df)                        #Vektor mit jenen Spalten, die metrische Variablen sind
-  m.variablen <- data.frame(            # Dataframe der deskriptive Statistiken herausgibt
+  
+  #Hilfsfunktion gibt Spalten mit metrischen Variablen aus
+  x <- m.var(df)
+  
+  #dataframe mit statistischen Werten
+  m.variablen <- data.frame(
     Quantil1 =  sapply(df[,x], function(df) quantile(df, 0.25)),
     mean = sapply(df[,x], mean),
     Quantil2 =  sapply(df[,x], function(df) quantile(df, 0.75)),
     sd = sapply(df[,x], sd),
-    Varianz = sapply(df[,x], var)
+    Varianz = sapply(df[,x], var),
+    Variationskoeff = sapply(df[,x], function(y) round((sd(y)/mean(y)*100),2))
   )
   print(m.variablen)
 }
 
 
-# (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken fuer kategoriale Variablen berechnet und ausgibt.
+
+## (b) verschiedene deskriptive Statistiken für kategoriale Variablen
+
+#Hilfsfunktion gibt an, welche Spalten kategorial sind
+k.var(df)
+
+kat.deskstat <- function(df, k){         
+# df = dataframe, k = Spalte mit kategorialen Variablen, welches man mit k.var berechnen kann
+  
+# Haeufigiskeitstabellen
+  x <- table(df[,k])
+  y <- cumsum(table(df[,k]))
+  liste <- list("abs. Haeufigkeit" = x, "kumulierte Haeufigkeit" = y)
+  print(liste)
+}
+
 
 
 # (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken fuer den Zusammenhang zwischen zwei kategorialen Variablen berechnet ausgibt.
