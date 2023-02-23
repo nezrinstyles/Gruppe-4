@@ -4,8 +4,8 @@
 # (a) verschiedene deskriptive Statistiken für metrische Variablen
 
 met.deskstat <- function(df){
-  x <- m.var(df)                  #Vektor mit jenen Spalten, die metrische Variablen sind
-  m.variablen <- data.frame(
+  x <- m.var(df)                        #Vektor mit jenen Spalten, die metrische Variablen sind
+  m.variablen <- data.frame(            # Dataframe der deskriptive Statistiken herausgibt
     Quantil1 =  sapply(df[,x], function(df) quantile(df, 0.25)),
     mean = sapply(df[,x], mean),
     Quantil2 =  sapply(df[,x], function(df) quantile(df, 0.75)),
