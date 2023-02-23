@@ -65,4 +65,4 @@ colnames(df) <- c("ID", "Alter", "Studienfach", "Interesse an Mathe",
                   "Interesse an Programmieren", "Mathe - LK")
 
 
-write.csv(df, "datensatz.csv", row.names = TRUE)
+write.csv(df, "datensatz.csv", row.names = FALSE)
