@@ -74,3 +74,6 @@ E <- function(df, var, cutoffs) {
   category <- cut(df[[var]], cutoffs, include.lowest = TRUE, labels = c("Low", "Medium", "High"))
   return(category)
 }
+
+
+# (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier kategorialen Variablen erstellt.
