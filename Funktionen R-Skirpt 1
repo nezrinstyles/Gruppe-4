@@ -54,12 +54,12 @@ cat_summary <- function(df, var1, var2){
   # Für erste Variable
   var1_lev <- levels(df[[var1]])
   var1_coun <- table(df[[var1]])
-  var1_perc <- round(prop.table(var1_counts)*100, 1)
+  var1_perc <- round(prop.table(var1_coun)*100, 1)
   
   # Für zweite Variable 
   var2_lev <- levels(df[[var2]])
   var2_coun <- table(df[[var2]])
-  var2_perc <- round(prop.table(var2_counts)*100, 1)
+  var2_perc <- round(prop.table(var2_coun)*100, 1)
   
   # Herausgaben
   cat(paste("Kreuztabelle:\n"))
