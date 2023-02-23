@@ -2,12 +2,15 @@
 
 
 # (a) Eine Funktion, die verschiedene geeignete deskriptive Statistiken fuer metrische Variablen berechnet und ausgibt.
+# Sissi Chen
 
 
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken fuer kategoriale Variablen berechnet und ausgibt.
+# Sissi Chen
 
 
 # (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken fuer den Zusammenhang zwischen zwei kategorialen Variablen berechnet ausgibt.
+# Nazrin Azizova
 
 cat_summary <- function(df, var1, var2){
 
@@ -60,7 +63,7 @@ cat_summary(df, "Studienfach", "Interesse an Mathe")
 
 # (d) Eine Funktion, die geeignete deskriptive bivariate Statistiken für den Zusammengang zwischen einer metrischen und einer 
 #dichotomen Variablen berechnet und ausgibt
-#von Zhuangyuxin 
+# Zhuangyuxin 
 D <- function(daten, var1, var2) {
   t <- t.test(daten[[var1]] ~ daten[[var2]])
   stats <- c(t$estimate, t$p.value)
@@ -69,7 +72,7 @@ D <- function(daten, var1, var2) {
 }
 
 # (e) Funktion zur quantitativen Kategorisierung einer ordinalskalierten Variablen
-#von Yajie Zhang
+# Yajie Zhang
 E <- function(df, var, cutoffs) {
   category <- cut(df[[var]], cutoffs, include.lowest = TRUE, labels = c("Low", "Medium", "High"))
   return(category)
@@ -77,3 +80,4 @@ E <- function(df, var, cutoffs) {
 
 
 # (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier kategorialen Variablen erstellt.
+# Hongming Qi
