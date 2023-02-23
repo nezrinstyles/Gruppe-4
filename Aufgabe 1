@@ -4,6 +4,7 @@
 # set.seed fuer Wiederholbarkeit
 set.seed(1234)
 
+
 # simulierter Datensatz
 id <- c(1:100)
 alter <- round(rnorm(100, mean = 25, sd = 2))
@@ -57,7 +58,6 @@ for(i in 1:100){
     }
   mathelk <- c(mathelk, output)
 }
-
 
 
 df <- data.frame(id, alter, studienfach, int.math, int.prog, mathelk)
