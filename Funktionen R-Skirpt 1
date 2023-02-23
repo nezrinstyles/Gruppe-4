@@ -1,3 +1,63 @@
+## Hier sind die Punkte a-f aus Aufgabe 3. 
+
+
+# (a) Eine Funktion, die verschiedene geeignete deskriptive Statistiken fuer metrische Variablen berechnet und ausgibt.
+
+
+# (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken fuer kategoriale Variablen berechnet und ausgibt.
+
+
+# (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken fuer den Zusammenhang zwischen zwei kategorialen Variablen berechnet ausgibt.
+
+cat_summary <- function(df, var1, var2){
+
+  # Zuerst machen wir eine Kreuztabelle
+  kreuz_tab <- table(df[[var1]], df[[var2]])
+
+  # Absolute und relative Häufigkeiten
+  abs <- addmargins(kreuz_tab)
+  rel <- prop.table(abs)
+
+  # Für erste Variable
+  var1_lev <- levels(df[[var1]])
+  var1_coun <- table(df[[var1]])
+  var1_perc <- round(prop.table(var1_counts)*100, 1)
+
+  # Für zweite Variable 
+  var2_lev <- levels(df[[var2]])
+  var2_coun <- table(df[[var2]])
+  var2_perc <- round(prop.table(var2_counts)*100, 1)
+
+  # Herausgaben
+  cat(paste("Kreuztabelle:\n"))
+  print(kreuz_tab)
+  cat("\n")
+
+  cat(paste("Absolute Häufigkeiten:\n"))
+  print(abs)
+  cat("\n")
+
+  cat(paste("Relative Häufigkeiten:\n"))
+  print(rel)
+  cat("\n")
+
+  cat(paste("Deskriptive Statistiken fuer", var1, ":\n"))
+  for(i in 1:length(var1_lev)){
+    cat(paste(var1_lev[i], ": ", var1_coun[i], " (", var1_perc[i], "%)\n", sep = ""))
+  }
+  cat("\n")
+
+  cat(paste("Deskriptive Statistiken fuer", var2, ":\n"))
+  for(i in 1:length(var2_lev)){
+    cat(paste(var2_lev[i], ": ", var2_coun[i], " (", var2_perc[i], "%)\n", sep = ""))
+  }
+
+}
+
+#Beispiel fuer Studienfach und Interesse an Mathematik
+cat_summary(df, "Studienfach", "Interesse an Mathe")
+
+
 # (d) Eine Funktion, die geeignete deskriptive bivariate Statistiken für den Zusammengang zwischen einer metrischen und einer 
 #dichotomen Variablen berechnet und ausgibt
 #von Zhuangyuxin 
