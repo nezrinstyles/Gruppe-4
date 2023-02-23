@@ -1,22 +1,26 @@
 ## Hilfsfunktionen, um jene Spalten mit metrischen variablen zu bekommen
+
+
 m.var <- function(df){
-  zeilen <- c()
+  zeilen <- c()        # Initialisierung einer leeren Liste
   for(i in 2:ncol(df)){
     if(is.logical(df[,i])){
-      next
+      next                         # Springe zur nächsten Iteration
     } else if (is.character(df[,i])){
-      next
+      next                         # Springe zur nächsten Iteration
     } else {
-      zeilen[i] <- i
+      zeilen[i] <- i               # Füge den Index der Spalte zu "zeilen" hinzu
     }
   }
-  print(zeilen[!is.na(zeilen)])
+  print(zeilen[!is.na(zeilen)])    # Gib eine Liste der Indizes der metrischen Spalten aus
 }
 
+
 ## Hilfsfunktion, um jene Spalten mit kategorialen Variablen zu bekommen
+
 k.var <- function(df){
-  zeilen <- c()
-  for(i in 2:ncol(df)){
+  zeilen <- c()              # Initialisierung einer leeren Liste 
+  for(i in 2:ncol(df)){      # Iteration über alle Spalten des Datenrahmens außer der ersten
     if(is.logical(df[,i])){
       zeilen[i] <- i
     } else if (is.character(df[,i])){
@@ -25,5 +29,5 @@ k.var <- function(df){
       zeilen[i] <- NA
     }
   }
-  print(zeilen[!is.na(zeilen)])
+  print(zeilen[!is.na(zeilen)])     # Gib eine Liste der Indizes der kategorialen Spalten aus
 }
