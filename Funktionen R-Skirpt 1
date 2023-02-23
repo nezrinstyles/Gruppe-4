@@ -112,3 +112,19 @@ E <- function(df, var, cutoffs) {
 
 
 # (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier kategorialen Variablen erstellt.
+
+Visualisierung <- function(data, var1, var2, var3 = NULL, var4 = NULL) {
+  if (!is.null(var4)) {
+    plot <- ggplot(data, aes(x = var1, fill = var2)) + 
+      geom_bar(position = "dodge") +
+      facet_wrap(vars(var3, var4))
+  } else if (!is.null(var3)) {
+    plot <- ggplot(data, aes(x = var1, fill = var2)) + 
+      geom_bar(position = "dodge") +
+      facet_wrap(var3)
+  } else {
+    plot <- ggplot(data, aes(x = var1, fill = var2)) + 
+      geom_bar(position = "dodge")
+  }
+  return(plot)
+}
