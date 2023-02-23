@@ -71,13 +71,14 @@ cat_summary(df, "Studienfach", "Interesse an Mathe")
 
 
 # (d) Eine Funktion, die geeignete deskriptive bivariate Statistiken für den Zusammengang zwischen metrischen und dichotomen Variablen berechnet und ausgibt.
-#von Zhuangyuxin 
+ 
 D <- function(daten, var1, var2) {
   t <- t.test(daten[[var1]] ~ daten[[var2]])
   stats <- c(t$estimate, t$p.value)
   names(stats) <- c("mean in group FALSE","mean in group TRUE ","p-value")
   return(stats)
 }
+
 
 # (e) Eine Funktion, die eine mindestens ordinal skalierte Variable quantilbasiert kategorisiert (z.B. in „niedrig“, „mittel“, „hoch“).
 
