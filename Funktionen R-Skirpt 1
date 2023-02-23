@@ -1,7 +1,19 @@
 ## Hier sind die Punkte a-f aus Aufgabe 3. 
 
 
-# (a) Eine Funktion, die verschiedene geeignete deskriptive Statistiken fuer metrische Variablen berechnet und ausgibt.
+# (a) verschiedene deskriptive Statistiken für metrische Variablen
+
+met.deskstat <- function(df){
+  x <- m.var(df)                  #Vektor mit jenen Spalten, die metrische Variablen sind
+  m.variablen <- data.frame(
+    Quantil1 =  sapply(df[,x], function(df) quantile(df, 0.25)),
+    mean = sapply(df[,x], mean),
+    Quantil2 =  sapply(df[,x], function(df) quantile(df, 0.75)),
+    sd = sapply(df[,x], sd),
+    Varianz = sapply(df[,x], var)
+  )
+  print(m.variablen)
+}
 
 
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken fuer kategoriale Variablen berechnet und ausgibt.
