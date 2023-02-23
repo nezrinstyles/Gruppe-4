@@ -105,6 +105,10 @@ D <- function(daten, var1, var2) {
 
 # (e) Eine Funktion, die eine mindestens ordinal skalierte Variable quantilbasiert kategorisiert (z.B. in „niedrig“, „mittel“, „hoch“).
 
+E <- function(df, var, cutoffs) {
+  category <- cut(df[[var]], cutoffs, include.lowest = TRUE, labels = c("Low", "Medium", "High"))
+  return(category)
+}
 
 
 # (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier kategorialen Variablen erstellt.
