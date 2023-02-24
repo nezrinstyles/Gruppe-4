@@ -1,3 +1,34 @@
 ## Aufgabe 4: Yuxin Zhuang, Minghong Qi und Yajie Zhang
+getwd()
+setwd("D:/Zyx/R")
+getwd()
 
-set.seed(1234)
+data = read.csv("datensatz.csv")
+data
+m.var(data)
+
+met.deskstat(data)
+
+k.var(data)
+
+kat.deskstat(data,3)
+
+cat_summary(data, "Studienfach", "Interesse.an.Mathe")# Der Zusammenhang zwischen dem Studienfach und dem Interesse an der Mathematik
+
+
+library(ggplot2)
+
+
+
+Visualisierung(data, var1 = "Mathe...LK",
+               var2 = "Alter" ,
+               var3 = "Interesse.an.Mathe")
+
+Visualisierung(data, var1 = "Interesse.an.Mathe",
+               var2 = "Alter" ,
+               var3 = "Mathe...LK")
+
+Visualisierung(data, var1 = "Interesse.an.Mathe",
+               var2 = "Alter" ,
+               var3 = "Studienfach")
+
