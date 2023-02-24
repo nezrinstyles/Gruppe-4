@@ -73,7 +73,6 @@ install.packages("cowplot")
 library(cowplot)
 
 #a
-
 compute_scale_stats_neu = function(data, var){
   if(varuseful_a(data,var)==TRUE){
     return(A(data, var))
