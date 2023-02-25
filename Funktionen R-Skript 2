@@ -1,0 +1,65 @@
+## Hilfsfunktionen, um jene Spalten mit metrischen variablen zu bekommen
+
+
+m.var <- function(df){
+  spalten <- c()        # leerer Vektor, um die Ergenbisse zu speichern
+  for(i in 2:ncol(df)){
+    if(is.logical(df[,i])){
+      next                         # Springe zur nächsten Iteration
+    } else if (is.character(df[,i])){
+      next                         # Springe zur nächsten Iteration
+    } else {
+      spalten[i] <- i               # Füge den Index der Spalte dem Vektor zu
+    }
+  }
+  print(spalten[!is.na(spalten)])    # Gib ein Vektor mit Indizes der metrischen Spalten aus, ohne NA
+}
+
+
+## Hilfsfunktion, um jene Spalten mit kategorialen Variablen zu bekommen
+
+k.var <- function(df){
+  spalten <- c()              # leerer Vektor für die ergebnisse
+  for(i in 2:ncol(df)){      # Iteration über alle Spalten des Datenrahmens außer der ersten, da dieser die ID-Spalte ist
+    if(is.logical(df[,i])){
+      spalten[i] <- i                
+    } else if (is.character(df[,i])){
+      spalten[i] <- i
+    } else {
+      spalten[i] <- NA
+    }
+  }
+  print(spalten[!is.na(spalten)])     # Gib ein Vektor mit Indizes der kategorialen Spalten aus, ohne NA
+}
+
+
+
+
+## Hilfsfunktion, die Gültigkeit von Funktionsvariablen a-f bestimmen
+varuseful = function(var){
+  if(var<=6 & var>=2){
+    if(var==3){
+      return(FALSE)
+    }
+    else{
+      return(TRUE)
+    }
+  }
+  else{
+    return(FALSE)
+  }
+}
+
+var_d = function(var1,var2){
+  if(var2 == 6){
+    if(var1 == 3){
+      return(FALSE)
+    }
+    else{
+      return(TRUE)
+    }
+  }
+  else{
+    return(FALSE)
+  }
+}
