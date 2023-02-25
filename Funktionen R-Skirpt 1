@@ -11,13 +11,14 @@ met.deskstat <- function(df){
   
   #dataframe mit statistischen Werten
   m.variablen <- data.frame(
-    Quantil1 =  sapply(df[,x], function(df) quantile(df, 0.25)),
     mean = sapply(df[,x], mean),
+    Quantil1 =  sapply(df[,x], function(df) quantile(df, 0.25)),
     Quantil2 =  sapply(df[,x], function(df) quantile(df, 0.75)),
-    sd = sapply(df[,x], sd),
-    Varianz = sapply(df[,x], var),
+    sd = round(sapply(df[,x], sd), 3),
+    Varianz = round(sapply(df[,x], var), 3),
     Variationskoeff = sapply(df[,x], function(y) round((sd(y)/mean(y)*100),2))
   )
+  rownames(m.variablen) <- colnames(df[,x])
   print(m.variablen)
 }
 
@@ -33,8 +34,9 @@ kat.deskstat <- function(df, k){
   
 # Haeufigiskeitstabellen
   x <- table(df[,k])
-  y <- cumsum(table(df[,k]))
-  liste <- list("abs. Haeufigkeit" = x, "kumulierte Haeufigkeit" = y)
+  y <- prop.table(x)
+  z <- cumsum(table(df[,k]))
+  liste <- cbind("abs. Haeufigkeit" = x, "rel. Haeufig." = y, "kumulierte Haeufigkeit" = z)
   print(liste)
 }
 
