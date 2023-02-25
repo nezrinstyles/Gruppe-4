@@ -63,11 +63,3 @@ var_d = function(var1,var2){
     return(FALSE)
   }
 }
-
-
-
-
-
-
-
-
