@@ -128,3 +128,18 @@ p2 = ggplot(data = df, mapping = aes(x = factor(x), y = z, fill = y)) +
   labs(title='Historgramm fuer Haeufigkeit von Mathe-LK')
 
 plot_grid(p1, p2, labels = LETTERS[1:2], ncol = 2)
+
+#c
+cat_summary(data,"Studienfach", "Interesse an Mathe")
+
+#d
+A=cbind(D(data,2,6),D(data,4,6),D(data,5,6))
+colnames(A)=c("age","interest_math","interest_programming")
+
+x <- c('p-value','p-value','p-value')
+y <- c('age','interest_math','interest_programming')
+z = c(0.4989, 0.5658, 0.3333)
+df <- data.frame(x = x, y = y, z = z)
+ggplot(data = df, mapping = aes(x = factor(x), y = z, fill = y)) + 
+  geom_bar(stat = 'identity', position = 'dodge')+
+  labs(title='Historgramm for t.test p-Value')
